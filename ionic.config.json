@@ -1,0 +1,7 @@
+{
+  "name": "music-apk",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
