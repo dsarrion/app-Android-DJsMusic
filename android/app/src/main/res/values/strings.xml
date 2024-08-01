@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">DJsMusic</string>
+    <string name="title_activity_main">DJsMusic</string>
+    <string name="package_name">com.talentodjs.myapp</string>
+    <string name="custom_url_scheme">com.talentodjs.myapp</string>
+</resources>

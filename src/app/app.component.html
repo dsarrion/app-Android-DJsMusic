@@ -1,3 +1,8 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+<!--CABECERA-->
+<app-header [userLoginOn]="userLoginOn" [userData]="userData"></app-header>
+<!--CONTENIDO PRINCIPAL-->
+<router-outlet></router-outlet>
+<!--PIE DE PÁGINA-->
+<app-footer></app-footer>
+<!--Navigation Movile-->
+<app-nav-movile></app-nav-movile>

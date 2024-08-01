@@ -1,0 +1,7 @@
+{
+    "/api": {
+        "target": "https://talentodjs.com",
+        "secure": false,
+        "changeOrigin": true
+    }
+}
