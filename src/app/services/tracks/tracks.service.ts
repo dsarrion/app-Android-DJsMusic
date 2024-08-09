@@ -74,7 +74,6 @@ export class TracksService {
           //CATEGORIAS
 
   getTracksByCategory(category_id: number, page?:number, perPage?:number): Observable<any> {
-    console.log('Fetching track with id:', category_id); // Log de la obtención
     return this.http.get<any>(environment.apiUrlBase+'/tracks/by-category/'+category_id+'?page='+page+'&perPage='+perPage).pipe(
       catchError(this.handleError)
     );
