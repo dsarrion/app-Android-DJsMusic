@@ -54,8 +54,7 @@ export class UserService {
         this.currentUserData.next(userData.data);
         this.currentUserLoginOn.next(true);
       }),
-      map((userData) => userData),
-      catchError(this.handleError)
+      map((userData) => userData)
     );
   }
 
