@@ -1,5 +1,11 @@
 {
   "appId": "com.talentodjs.myapp",
   "appName": "DJsMusic",
-  "webDir": "dist"
+  "webDir": "dist",
+  "android": {
+    "orientation": "portrait"
+  },
+  "ios": {
+    "orientation": "portrait"
+  }
 }

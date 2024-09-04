@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { OnInit } from '@angular/core'; 
 import { initFlowbite } from 'flowbite';
 
@@ -9,6 +9,9 @@ import { User } from './Models/userModel';
 import { UserService } from './services/user/user.service';
 import { Subscription } from 'rxjs';
 import { NavMovileComponent } from './components/nav-movile/nav-movile.component';
+import { Platform } from '@ionic/angular';
+import { Location } from '@angular/common';
+import { App } from '@capacitor/app';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +26,14 @@ export class AppComponent implements OnInit, OnDestroy {
   userData?: User;
   private subscriptions: Subscription = new Subscription();
 
-  constructor(private userService: UserService){}
+  constructor(
+    private userService: UserService, 
+    private platform: Platform,
+    private location: Location,
+    private router: Router)
+    {
+      this.initializeApp();
+    }
 
   ngOnInit(): void {
     if (typeof document !== 'undefined') {
@@ -60,6 +70,23 @@ export class AppComponent implements OnInit, OnDestroy {
       })
     )
   }
+
+  initializeApp() {
+      this.platform.ready().then(() => {
+        this.handleBackButton();
+      });
+    }
+    handleBackButton() {
+          this.platform.backButton.subscribeWithPriority(10, () => {
+            if (this.router.url === '/home' || this.router.url === '/inicio') {
+              if (window.confirm('¿Quieres salir de la aplicación?')) {
+                App.exitApp();
+              }
+            } else {
+              this.location.back();
+            }
+          });
+    }
 
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
